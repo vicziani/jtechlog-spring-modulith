@@ -1,0 +1,33 @@
+### List employees 
+GET http://localhost:8080/api/employees
+Accept: application/json
+
+### Create employee
+
+POST http://localhost:8080/api/employees
+Content-Type: application/json
+
+{
+  "name": "John Doe"
+}
+
+### Delete employee
+DELETE http://localhost:8080/api/employees/29
+
+### Create skill
+
+POST http://localhost:8080/api/skills
+Content-Type: application/json
+
+{
+  "name": "Python1"
+}
+
+### Acquire skill
+POST http://localhost:8080/api/employees/32/skills
+Content-Type: application/json
+
+{
+  "skills": [1, 2],
+  "levels": [5, 4]
+}
