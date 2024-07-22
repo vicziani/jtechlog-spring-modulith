@@ -1,7 +1,7 @@
 package training.mentoringapp.employees.internal.service;
 
 import org.mapstruct.Mapper;
-import training.mentoringapp.employees.dto.CreateEmployeeCommand;
+import training.mentoringapp.employees.internal.dto.CreateEmployeeCommand;
 import training.mentoringapp.employees.dto.EmployeeDto;
 import training.mentoringapp.employees.internal.entity.*;
 

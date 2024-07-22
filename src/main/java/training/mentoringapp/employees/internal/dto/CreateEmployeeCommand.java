@@ -1,4 +1,4 @@
-package training.mentoringapp.employees.dto;
+package training.mentoringapp.employees.internal.dto;
 
 import training.mentoringapp.employees.internal.entity.Address;
 

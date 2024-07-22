@@ -5,9 +5,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-import training.mentoringapp.employees.dto.CreateEmployeeCommand;
+import training.mentoringapp.employees.internal.dto.CreateEmployeeCommand;
 import training.mentoringapp.employees.dto.EmployeeDto;
-import training.mentoringapp.employees.dto.UpdateEmployeeCommand;
+import training.mentoringapp.employees.internal.dto.UpdateEmployeeCommand;
 import training.mentoringapp.employees.internal.service.EmployeeService;
 
 import java.util.List;

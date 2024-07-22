@@ -5,6 +5,8 @@ import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import training.mentoringapp.employees.dto.*;
+import training.mentoringapp.employees.internal.dto.CreateEmployeeCommand;
+import training.mentoringapp.employees.internal.dto.UpdateEmployeeCommand;
 import training.mentoringapp.employees.internal.entity.Employee;
 import training.mentoringapp.employees.internal.repository.EmployeeRepository;
 
