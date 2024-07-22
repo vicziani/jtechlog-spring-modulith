@@ -2,10 +2,9 @@ package training.mentoringapp.acquiredskills.internal.service;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.scheduling.annotation.Async;
+import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.transaction.event.TransactionalEventListener;
 import training.mentoringapp.acquiredskills.internal.repository.EmployeeSkillsRepository;
 import training.mentoringapp.employees.EmployeesFacade;
 import training.mentoringapp.employees.dto.EmployeeHasBeenDeletedEvent;
@@ -41,7 +40,7 @@ public class AcquiredSkillsService {
         return result;
     }
 
-    @TransactionalEventListener
+    @EventListener
     public void handleEmployeeHasBeenDeletedEvent(EmployeeHasBeenDeletedEvent event) {
         log.info("Event has arrived: {}", event);
         var employeeSkills = employeeSkillsRepository.findByEmployeeId(event.employeeId());
