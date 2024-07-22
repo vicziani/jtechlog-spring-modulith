@@ -43,7 +43,7 @@ public class AcquiredSkillsService {
 
     @Async
     @TransactionalEventListener
-    public void handleEmployeeHasDeletedEvent(EmployeeHasBeenDeletedEvent event) {
+    public void handleEmployeeHasBeenDeletedEvent(EmployeeHasBeenDeletedEvent event) {
         log.info("Event has arrived: {}", event);
         var employeeSkills = employeeSkillsRepository.findByEmployeeId(event.employeeId());
         employeeSkills.ifPresent(skills -> employeeSkillsRepository.delete(skills));
