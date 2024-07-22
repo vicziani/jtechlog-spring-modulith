@@ -12,7 +12,7 @@ Content-Type: application/json
 }
 
 ### Delete employee
-DELETE http://localhost:8080/api/employees/29
+DELETE http://localhost:8080/api/employees/6
 
 ### Create skill
 
@@ -39,4 +39,43 @@ Content-Type: application/json
       "level": 3
     }
   ]
+}
+
+###
+GET http://localhost:8080/actuator
+
+###
+GET http://localhost:8080/actuator/chaosmonkey
+
+###
+### Chaos Monkey - AcquiredSkillsService.handleEmployeeHasDeletedEvent metódus dobjon kivételt
+POST http://localhost:8080/actuator/chaosmonkey/assaults
+Content-Type: application/json
+
+{
+  "level": 1,
+  "latencyActive": false,
+  "exceptionsActive": true,
+  "exception": {
+    "type": "java.lang.RuntimeException",
+    "method": "<init>",
+    "arguments": [
+      {
+        "type": "java.lang.String",
+        "value": "Chaos Monkey - RuntimeException"
+      }
+    ]
+  },
+  "watchedCustomServices": ["training.mentoringapp.acquiredskills.internal.service.AcquiredSkillsService.handleEmployeeHasDeletedEvent"]
+}
+
+### Chaos Monkey - reset
+POST http://localhost:8080/actuator/chaosmonkey/assaults
+Content-Type: application/json
+
+{
+  "level": 1,
+  "latencyActive": false,
+  "exceptionsActive": false,
+  "watchedCustomServices": ["training.mentoringapp.acquiredskills.internal.service.AcquiredSkillsService.handleEmployeeHasDeletedEvent"]
 }
