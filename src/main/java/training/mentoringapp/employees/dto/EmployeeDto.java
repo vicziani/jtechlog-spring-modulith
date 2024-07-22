@@ -1,15 +1,9 @@
 package training.mentoringapp.employees.dto;
 
-import lombok.Data;
+import training.mentoringapp.employees.internal.entity.Address;
 
 import java.util.List;
 
-@Data
-public class EmployeeDto {
+public record EmployeeDto(Long id, String name, List<Address> addresses) {
 
-    private Long id;
-
-    private String name;
-
-    private List<AddressDto> addresses;
 }

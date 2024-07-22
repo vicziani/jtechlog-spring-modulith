@@ -1,9 +1,5 @@
 package training.mentoringapp.skills.internal.dto;
 
-import lombok.Data;
+public record CreateSkillCommand(String name) {
 
-@Data
-public class CreateSkillCommand {
-
-    private String name;
 }

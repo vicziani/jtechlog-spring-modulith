@@ -32,7 +32,7 @@ public class EmployeeController {
     @PostMapping // nem idempotens
     public ResponseEntity<EmployeeDto> createEmployee(@RequestBody CreateEmployeeCommand command) {
         EmployeeDto employeeDto = employeeService.createEmployee(command);
-        return ResponseEntity.created(ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(employeeDto.getId()).toUri()).body(employeeDto);
+        return ResponseEntity.created(ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(employeeDto.id()).toUri()).body(employeeDto);
     }
 
     @PutMapping("/{id}") // idempotens

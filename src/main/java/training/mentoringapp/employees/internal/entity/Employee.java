@@ -20,19 +20,14 @@ public class Employee {
 
     private String name;
 
-    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
+    @ElementCollection
     private List<Address> addresses = new ArrayList<>();
 
     public Employee(String name) {
         this.name = name;
     }
 
-    public void addAddress(Address address) {
-        addresses.add(address);
-        address.setEmployee(this);
-    }
-
     public void addAddresses(List<Address> addresses) {
-        addresses.forEach(this::addAddress);
+        this.addresses.addAll(addresses);
     }
 }

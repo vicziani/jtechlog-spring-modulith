@@ -1,13 +1,5 @@
 package training.mentoringapp.employees.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+public record EmployeeHasDeletedEvent(long employeeId) {
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-public class EmployeeHasDeletedEvent {
-
-    private long employeeId;
 }

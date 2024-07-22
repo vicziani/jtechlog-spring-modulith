@@ -1,9 +1,9 @@
-package training.mentoringapp.skills.internal.repository;
+package training.mentoringapp.acquiredskills.internal.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
-import training.mentoringapp.skills.internal.entity.EmployeeSkills;
+import training.mentoringapp.acquiredskills.internal.entity.EmployeeSkills;
 
 import java.util.Optional;
 

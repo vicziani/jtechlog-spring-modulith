@@ -7,9 +7,9 @@ import org.springframework.transaction.annotation.Transactional;
 import training.mentoringapp.employees.dto.*;
 import training.mentoringapp.employees.internal.entity.Employee;
 import training.mentoringapp.employees.internal.repository.EmployeeRepository;
-import training.mentoringapp.skills.internal.service.SkillsService;
 
 import java.util.List;
+import java.util.function.Supplier;
 
 @Service
 @AllArgsConstructor
@@ -33,24 +33,28 @@ public class EmployeeService {
 
     public EmployeeDto findEmployeeById(long id) {
         return employeeMapper.toEmployeeDto(employeeRepository.findByIdWithAddresses(id)
-                        .orElseThrow(() -> new NotFoundException("Employee not found with id: " + id)));
+                        .orElseThrow(employeeNotFound(id)));
     }
 
     @Transactional
     public EmployeeDto updateEmployee(long id, UpdateEmployeeCommand command) {
         Employee employeeToModify = employeeRepository
                 .findById(id)
-                .orElseThrow(() -> new NotFoundException("Employee not found with id: " + id));
-        employeeToModify.setName(command.getName());
+                .orElseThrow(employeeNotFound(id));
+        employeeToModify.setName(command.name());
         return employeeMapper.toEmployeeDto(employeeToModify);
     }
 
     @Transactional
     public void deleteEmployee(long id) {
         Employee employee = employeeRepository.findByIdWithAddresses(id)
-                .orElseThrow(() -> new NotFoundException("Employee not found with id: " + id));
+                .orElseThrow();
         employeeRepository.delete(employee);
 
         publisher.publishEvent(new EmployeeHasDeletedEvent(id));
+    }
+
+    private Supplier<NotFoundException> employeeNotFound(long id) {
+      return () -> new NotFoundException("Employee not found with id: " + id);
     }
 }

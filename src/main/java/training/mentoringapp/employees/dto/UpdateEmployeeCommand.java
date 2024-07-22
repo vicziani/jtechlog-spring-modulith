@@ -1,9 +1,5 @@
 package training.mentoringapp.employees.dto;
 
-import lombok.Data;
+public record UpdateEmployeeCommand(String name) {
 
-@Data
-public class UpdateEmployeeCommand {
-
-    private String name;
 }

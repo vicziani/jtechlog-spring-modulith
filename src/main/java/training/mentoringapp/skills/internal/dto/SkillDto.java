@@ -1,11 +1,5 @@
 package training.mentoringapp.skills.internal.dto;
 
-import lombok.Data;
+public record SkillDto(Long id, String name) {
 
-@Data
-public class SkillDto {
-
-    private Long id;
-
-    private String name;
 }

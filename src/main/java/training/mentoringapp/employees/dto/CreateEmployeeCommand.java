@@ -1,13 +1,9 @@
 package training.mentoringapp.employees.dto;
 
-import lombok.Data;
+import training.mentoringapp.employees.internal.entity.Address;
 
 import java.util.List;
 
-@Data
-public class CreateEmployeeCommand {
+public record CreateEmployeeCommand(String name, List<Address> addresses) {
 
-    private String name;
-
-    private List<CreateAddressDto> addresses;
 }

@@ -1,6 +1,6 @@
 # Modularizált alkalmazás fejlesztése a Spring Modulith-tal
 
-Ez a program a JTechLog (http://jtechlog.hu) blog "Modularizált alkalmazás fejlesztése a Spring Modulith-tal" cikkéhez készült példaprogram.
+Ez a program a JTechLog (http://jtechlog.hu) blog _Modularizált alkalmazás fejlesztése a Spring Modulith-tal_ cikkéhez készült példaprogram.
 
 viczian.istvan a gmail-en
 
@@ -11,8 +11,4 @@ viczian.istvan a gmail-en
 * IDEA Code / Analyze Code / Dependencies
   * https://www.jetbrains.com/help/idea/dsm-analysis.html
 
-```shell
-docker run -d -p 9411:9411 --name zipkin openzipkin/zipkin
-```
-
-Elérhető a `http://localhost:9411` címen
+Futtatható a `TestMentoringApplication` osztállyal, mely elindítja a konténereket is.

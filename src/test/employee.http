@@ -20,14 +20,23 @@ POST http://localhost:8080/api/skills
 Content-Type: application/json
 
 {
-  "name": "Python1"
+  "name": "Java"
 }
 
 ### Acquire skill
-POST http://localhost:8080/api/employees/32/skills
+POST http://localhost:8080/api/employees/1/skills
 Content-Type: application/json
 
 {
-  "skills": [1, 2],
-  "levels": [5, 4]
+  "employeeId": 1,
+  "acquiredSkills": [
+    {
+      "skillId": 1,
+      "level": 3
+    },
+    {
+      "skillId": 2,
+      "level": 3
+    }
+  ]
 }

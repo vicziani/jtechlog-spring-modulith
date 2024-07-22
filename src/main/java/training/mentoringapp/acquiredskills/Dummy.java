@@ -1,4 +1,4 @@
-package training.mentoringapp.skills;
+package training.mentoringapp.acquiredskills;
 
 import org.springframework.stereotype.Component;
 
