@@ -66,7 +66,7 @@ Content-Type: application/json
       }
     ]
   },
-  "watchedCustomServices": ["training.mentoringapp.acquiredskills.internal.service.AcquiredSkillsService.handleEmployeeHasDeletedEvent"]
+  "watchedCustomServices": ["training.mentoringapp.acquiredskills.internal.service.AcquiredSkillsService.handleEmployeeHasBeenDeletedEvent"]
 }
 
 ### Chaos Monkey - reset
@@ -77,5 +77,5 @@ Content-Type: application/json
   "level": 1,
   "latencyActive": false,
   "exceptionsActive": false,
-  "watchedCustomServices": ["training.mentoringapp.acquiredskills.internal.service.AcquiredSkillsService.handleEmployeeHasDeletedEvent"]
+  "watchedCustomServices": ["training.mentoringapp.acquiredskills.internal.service.AcquiredSkillsService.handleEmployeeHasBeenDeletedEvent"]
 }
