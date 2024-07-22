@@ -41,7 +41,6 @@ public class AcquiredSkillsService {
         return result;
     }
 
-    @Async
     @TransactionalEventListener
     public void handleEmployeeHasBeenDeletedEvent(EmployeeHasBeenDeletedEvent event) {
         log.info("Event has arrived: {}", event);
