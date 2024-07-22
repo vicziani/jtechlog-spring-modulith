@@ -51,7 +51,7 @@ public class EmployeeService {
                 .orElseThrow();
         employeeRepository.delete(employee);
 
-        publisher.publishEvent(new EmployeeHasDeletedEvent(id));
+        publisher.publishEvent(new EmployeeHasBeenDeletedEvent(id));
     }
 
     private Supplier<NotFoundException> employeeNotFound(long id) {

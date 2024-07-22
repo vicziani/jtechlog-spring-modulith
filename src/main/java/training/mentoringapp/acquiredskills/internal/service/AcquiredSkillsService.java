@@ -8,7 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.event.TransactionalEventListener;
 import training.mentoringapp.acquiredskills.internal.repository.EmployeeSkillsRepository;
 import training.mentoringapp.employees.EmployeesFacade;
-import training.mentoringapp.employees.dto.EmployeeHasDeletedEvent;
+import training.mentoringapp.employees.dto.EmployeeHasBeenDeletedEvent;
 import training.mentoringapp.acquiredskills.internal.dto.AcquireSkillsCommand;
 import training.mentoringapp.acquiredskills.internal.entity.AcquiredSkill;
 import training.mentoringapp.acquiredskills.internal.entity.EmployeeSkills;
@@ -43,7 +43,7 @@ public class AcquiredSkillsService {
 
     @Async
     @TransactionalEventListener
-    public void handleEmployeeHasDeletedEvent(EmployeeHasDeletedEvent event) {
+    public void handleEmployeeHasDeletedEvent(EmployeeHasBeenDeletedEvent event) {
         log.info("Event has arrived: {}", event);
         var employeeSkills = employeeSkillsRepository.findByEmployeeId(event.employeeId());
         employeeSkills.ifPresent(skills -> employeeSkillsRepository.delete(skills));
