@@ -21,4 +21,10 @@ public class AcquiredSkillsController {
         }
         return acquiredSkillsService.acquireSkills(command);
     }
+
+    @GetMapping("/api/employees/{employeeId}/skills")
+    public List<AcquiredSkill> getAcquiredSkills(@PathVariable("employeeId") long employeeId) {
+        return acquiredSkillsService.getAcquiredSkills(employeeId);
+    }
+
 }

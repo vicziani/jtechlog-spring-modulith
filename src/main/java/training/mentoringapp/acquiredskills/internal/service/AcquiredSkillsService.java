@@ -44,6 +44,12 @@ public class AcquiredSkillsService {
         return result;
     }
 
+    public List<AcquiredSkill> getAcquiredSkills(long employeeId) {
+        return employeeSkillsRepository
+                .findByEmployeeId(employeeId)
+                .orElse(new EmployeeSkills(employeeId)).getAcquiredSkills();
+    }
+
     @ApplicationModuleListener
     public void handleEmployeeHasBeenDeletedEvent(EmployeeHasBeenDeletedEvent event) {
         log.info("Event has arrived: {}", event);
